@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Facebook Login</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 350px;
+            background: white;
+            margin: 80px auto;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px gray;
+        }
+
+        h1 {
+            color: #1877f2;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 14px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .show-password {
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            width: 98%;
+            padding: 14px;
+            background: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #166fe5;
+        }
+
+        a {
+            display: block;
+            margin: 18px;
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        .create-btn {
+            width: 70%;
+            padding: 13px 20px;
+            margin-top: 5px;
+            background: #42b72a;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .create-btn:hover {
+            background: #36a420;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .create-btn:active {
+            transform: translateY(0);
+        }
+
+        #warning {
+            display: none;
+            color: red;
+            margin-top: 15px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="box">
+
+        <h1>Facebook</h1>
+
+        <!-- Email Input -->
+
+        <input type="text"
+               id="email"
+               placeholder="Email or phone">
+
+
+        <!-- Password Input -->
+
+        <input type="password"
+               id="password"
+               placeholder="Password">
+
+
+        <br>
+
+
+        <!-- Show Password -->
+
+        <input type="checkbox"
+               class="show-password"
+               onclick="showPassword()">
+
+        Show Password
+
+
+        <!-- Forgot Password -->
+
+        <a href="#"
+           onclick="forgotPassword()">
+
+            Forgot Password?
+
+        </a>
+
+
+        <!-- Login Button -->
+
+        <button class="login-btn"
+                onclick="showWarning()">
+
+            Log In
+
+        </button>
+
+
+        <!-- Warning -->
+
+        <p id="warning"></p>
+
+
+        <!-- Line -->
+
+        <hr>
+
+
+        <!-- Create Account Button -->
+
+        <button class="create-btn"
+                onclick="createAccount()">
+
+            Create New Account
+
+        </button>
+
+    </div>
+
+
+    <script>
+
+        /* Show / Hide Password */
+
+        function showPassword() {
+
+            var password =
+                document.getElementById("password");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+            } else {
+
+                password.type = "password";
+
+            }
+
+        }
+
+
+        /* Forgot Password */
+
+        function forgotPassword() {
+
+            alert("Password reset option clicked!");
+
+        }
+
+
+        /* Login */
+
+        function showWarning() {
+
+            var email =
+                document.getElementById("email").value;
+
+            var password =
+                document.getElementById("password").value;
+
+            var warning =
+                document.getElementById("warning");
+
+
+            if (email === "" || password === "") {
+
+                warning.style.color = "red";
+
+                warning.innerHTML =
+                    "Please enter your Email and Password!";
+
+                warning.style.display = "block";
+
+            } else {
+
+                warning.style.color = "green";
+
+                warning.innerHTML =
+                    "Demo Login Successful!";
+
+                warning.style.display = "block";
+
+            }
+
+        }
+
+
+        /* Create New Account */
+
+        function createAccount() {
+
+            alert("Create New Account clicked!");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
